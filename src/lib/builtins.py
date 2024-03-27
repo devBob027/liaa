@@ -81,9 +81,13 @@ class Textbox(game.GameObject):
 
         if self.framesLeft > 0:
             self.framesLeft -= 1
+            if self.framesLeft == 0:
+                return [game.Event('TextboxTextComplete', [self.id])]
+        
         for event in events:
             match event.type:
                 case pygame.KEYDOWN:
                     if event.key in [pygame.K_z, pygame.K_x]:
                         if self.framesLeft:
                             self._setTextAnim(True)
+                            return [game.Event('TextboxTextComplete', [self.id]), game.Event('TextboxTextSkipped', [self.id])]
