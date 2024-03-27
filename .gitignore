@@ -1,0 +1,9 @@
+/venv/
+*venv
+/test/
+conf.json
+test.py
+*test
+__pycache__
+*.bin
+*.json
