@@ -62,7 +62,7 @@ class Textbox(game.GameObject):
             line += 1
         self.framesLeft = dT
 
-    def load(self, data = {'text': '', 'textSpeed': 1, 'pos': (0, 103), 'hColor': (255, 255, 255), 'bColor': (0, 0, 0), 'size': (254, 40)}):
+    def load(self, data = {'text': '', 'textSpeed': 1, 'pos': (1, 103), 'hColor': (255, 255, 255), 'bColor': (0, 0, 0), 'size': (254, 40)}):
         
         self.textSpeed = data['textSpeed']
         self.animate = True
