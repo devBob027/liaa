@@ -67,6 +67,8 @@ class Game:
         for event in self.eventQueue:
             match event.type:
                 case pygame.QUIT:
+                    pygame.mixer.quit()
+                    pygame.font.quit()
                     pygame.quit()
                     sys.exit()
                 case 'offsetCamera':
