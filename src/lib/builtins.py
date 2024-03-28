@@ -100,7 +100,7 @@ class SoundPlayer(game.GameObject):
         self.playingSounds = []
         self.soundLevels = {'bgMusic': 0.2}
 
-    def set_soundLevel(self, soundLevel, newVal):
+    def setSoundLevel(self, soundLevel, newVal):
         self.soundLevels[soundLevel] = newVal
 
     def tick(self, events):
