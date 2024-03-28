@@ -32,6 +32,7 @@ class Game:
     def __init__(self):
         pygame.init()
         pygame.font.init()
+        pygame.mixer.init()
         self.display = pygame.display.set_mode(io.getRes())
         self.clock = pygame.time.Clock()
         self.gameObjects = []

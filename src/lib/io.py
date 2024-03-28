@@ -1,6 +1,8 @@
 import os, sys, json, pygame, pickle
 from os.path import join as merge
 
+global cache
+cache = {}
 
 # conf.json check
 if not os.path.exists('conf.json'):
@@ -34,6 +36,19 @@ else:
 # GET ASSETS
 #
 
+
+def getSound(name):
+    global cache
+    path = merge(PATH, 'resources', 'sounds', f'{name}.mp3')
+    if os.path.exists(path):
+        if path in cache:
+            return cache[path]
+        else:
+            sound = pygame.mixer.Sound(path)
+            cache[path] = sound
+            return sound
+    else:
+        return None
 
 def getRes():
     return (RES[0] * SIZE, RES [1] * SIZE)
