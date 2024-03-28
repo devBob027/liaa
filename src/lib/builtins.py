@@ -91,3 +91,37 @@ class Textbox(game.GameObject):
                         if self.framesLeft:
                             self._setTextAnim(True)
                             return [game.Event('TextboxTextComplete', [self.id]), game.Event('TextboxTextSkipped', [self.id])]
+
+class SoundPlayer(game.GameObject):
+    def load(self, data = {}):
+        self.channels = []
+        for i in range(pygame.mixer.get_num_channels()):
+            self.channels.append(pygame.mixer.Channel(i))
+        self.playingSounds = []
+        self.soundLevels = {'bgMusic': 0.2}
+
+    def set_soundLevel(self, soundLevel, newVal):
+        self.soundLevels[soundLevel] = newVal
+
+    def tick(self, events):
+        for event in events:
+            match event.type:
+                case 'SoundPlayerPlaySound':
+                    for i, c in enumerate(self.channels):
+                        # if the channel is not busy
+                        if not c.get_busy():
+                            f = io.getSound(event.data[1])
+                            # and the requested sound exists
+                            if f:
+                                c.set_volume(self.soundLevels[event.data[3]])
+                                c.play(io.getSound(event.data[1]), event.data[2])
+                                # Append the new playing sound and break the loop.
+                                self.playingSounds.append([i, event.data[0], event.data[1]])
+                                break
+                case 'SoundPlayerStopSound':
+                    for sound in self.playingSounds:
+                        if sound[1] == event.data[0] and sound[2] == event.data[1]:
+                            self.channels[sound[0]].stop()
+                case 'SoundPlayerStopAllSounds':
+                    for channel in self.channels:
+                        channel.stop()
