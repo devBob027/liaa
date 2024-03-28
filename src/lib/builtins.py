@@ -4,7 +4,7 @@ import pygame, os, sys, math, textwrap
 '''
     TODO: add the following presets:
         [X] Textbox
-        [ ] SoundPlayer
+        [X] SoundPlayer
         [ ] PlayerSizeview
         [ ] GridMap
         [ ] BasicMenu
