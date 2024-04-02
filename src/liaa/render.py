@@ -1,4 +1,4 @@
-from lib import io
+from liaa import io
 import pygame, math
 
 class RenderObject:

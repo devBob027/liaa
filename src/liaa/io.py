@@ -2,7 +2,7 @@ import os, sys, json, pygame, pickle
 from os.path import join as merge
 
 global cache
-cache = {}
+cache = {}  
 
 # conf.json check
 if not os.path.exists('conf.json'):

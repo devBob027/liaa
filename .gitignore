@@ -7,3 +7,6 @@ test.py
 __pycache__
 *.bin
 *.json
+liaa.egg-info
+dist
+build

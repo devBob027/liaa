@@ -1,11 +1,11 @@
-from lib import game, io, render
+from liaa import game, io, render
 import pygame, os, sys, math, textwrap
 
 '''
     TODO: add the following presets:
         [X] Textbox
         [X] SoundPlayer
-        [ ] PlayerSizeview
+        [ ] PlayerSideview
         [ ] GridMap
         [ ] BasicMenu
         [ ] PlayerTopdown
@@ -98,7 +98,7 @@ class SoundPlayer(game.GameObject):
         for i in range(pygame.mixer.get_num_channels()):
             self.channels.append(pygame.mixer.Channel(i))
         self.playingSounds = []
-        self.soundLevels = {'bgMusic': 0.2}
+        self.soundLevels = {'sfx': 0.2, 'bgMusic': 0.1}
 
     def setSoundLevel(self, soundLevel, newVal):
         self.soundLevels[soundLevel] = newVal
@@ -125,3 +125,4 @@ class SoundPlayer(game.GameObject):
                 case 'SoundPlayerStopAllSounds':
                     for channel in self.channels:
                         channel.stop()
+
