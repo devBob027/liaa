@@ -13,7 +13,7 @@ LONG_DESCRIPTION = 'A Pygame based game engine for python'
 
 # Setting up
 setup(
-    name="liaa",
+    name="pine",
     version=VERSION,
     author="Bobnow",
     author_email="<bob@bobnow.net>",

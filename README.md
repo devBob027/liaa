@@ -1,4 +1,4 @@
-# LIAA
+# Pine
 ## An underengineered overengineered Python "game engine" using Pygame
 
 ## Features

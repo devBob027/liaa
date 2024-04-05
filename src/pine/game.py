@@ -22,7 +22,7 @@ class GameObject:
     def save(self):
         pass
 
-    def load(self):
+    def load(self, data = {'foo':'bar'}):
         pass
 
     def tick(self, events):
