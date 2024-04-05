@@ -1,5 +1,5 @@
 import pygame, multiprocessing, sys
-from liaa import render, io
+from pine import render, io
 
 class Event:
     def __init__(self, t, data):

@@ -1,4 +1,4 @@
-from liaa import game, io, render
+from pine import game, io, render
 import pygame, os, sys, math, textwrap
 
 '''
